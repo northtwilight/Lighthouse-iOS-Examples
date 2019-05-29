@@ -25,7 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		77BF8B7D22994B620066CDBA /* W1D3-EX-PersonToEmployee */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "W1D3-EX-PersonToEmployee"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77BF8B7D22994B620066CDBA /* W1D3-PersonToEmployee */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "W1D3-PersonToEmployee"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BF8B8022994B620066CDBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77BF8B8722994BAC0066CDBA /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		77BF8B8822994C680066CDBA /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		77BF8B7422994B620066CDBA = {
 			isa = PBXGroup;
 			children = (
-				77BF8B7F22994B620066CDBA /* W1D3-EX-PersonToEmployee */,
+				77BF8B7F22994B620066CDBA /* W1D3-PersonToEmployee */,
 				77BF8B7E22994B620066CDBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,12 +55,12 @@
 		77BF8B7E22994B620066CDBA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				77BF8B7D22994B620066CDBA /* W1D3-EX-PersonToEmployee */,
+				77BF8B7D22994B620066CDBA /* W1D3-PersonToEmployee */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		77BF8B7F22994B620066CDBA /* W1D3-EX-PersonToEmployee */ = {
+		77BF8B7F22994B620066CDBA /* W1D3-PersonToEmployee */ = {
 			isa = PBXGroup;
 			children = (
 				77BF8B8022994B620066CDBA /* main.m */,
@@ -69,15 +69,15 @@
 				77BF8B8A22994D590066CDBA /* Employee.h */,
 				77BF8B8B22994DDC0066CDBA /* Employee.m */,
 			);
-			path = "W1D3-EX-PersonToEmployee";
+			path = "W1D3-PersonToEmployee";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		77BF8B7C22994B620066CDBA /* W1D3-EX-PersonToEmployee */ = {
+		77BF8B7C22994B620066CDBA /* W1D3-PersonToEmployee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 77BF8B8422994B620066CDBA /* Build configuration list for PBXNativeTarget "W1D3-EX-PersonToEmployee" */;
+			buildConfigurationList = 77BF8B8422994B620066CDBA /* Build configuration list for PBXNativeTarget "W1D3-PersonToEmployee" */;
 			buildPhases = (
 				77BF8B7922994B620066CDBA /* Sources */,
 				77BF8B7A22994B620066CDBA /* Frameworks */,
@@ -87,9 +87,9 @@
 			);
 			dependencies = (
 			);
-			name = "W1D3-EX-PersonToEmployee";
+			name = "W1D3-PersonToEmployee";
 			productName = "W1D3-EX-PersonToEmployee";
-			productReference = 77BF8B7D22994B620066CDBA /* W1D3-EX-PersonToEmployee */;
+			productReference = 77BF8B7D22994B620066CDBA /* W1D3-PersonToEmployee */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77BF8B7822994B620066CDBA /* Build configuration list for PBXProject "W1D3-EX-PersonToEmployee" */;
+			buildConfigurationList = 77BF8B7822994B620066CDBA /* Build configuration list for PBXProject "W1D3-PersonToEmployee" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				77BF8B7C22994B620066CDBA /* W1D3-EX-PersonToEmployee */,
+				77BF8B7C22994B620066CDBA /* W1D3-PersonToEmployee */,
 			);
 		};
 /* End PBXProject section */
@@ -269,7 +269,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		77BF8B7822994B620066CDBA /* Build configuration list for PBXProject "W1D3-EX-PersonToEmployee" */ = {
+		77BF8B7822994B620066CDBA /* Build configuration list for PBXProject "W1D3-PersonToEmployee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77BF8B8222994B620066CDBA /* Debug */,
@@ -278,7 +278,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		77BF8B8422994B620066CDBA /* Build configuration list for PBXNativeTarget "W1D3-EX-PersonToEmployee" */ = {
+		77BF8B8422994B620066CDBA /* Build configuration list for PBXNativeTarget "W1D3-PersonToEmployee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77BF8B8522994B620066CDBA /* Debug */,
