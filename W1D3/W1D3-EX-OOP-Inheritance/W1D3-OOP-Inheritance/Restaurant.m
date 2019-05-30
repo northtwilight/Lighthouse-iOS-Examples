@@ -17,6 +17,19 @@
 }
 
 - (instancetype) init {
+    self = [super init];
+    return self;
+}
+
+- (instancetype) initWithName: (NSString *)name {
+    self = [super init];
+    if (self) {
+        self.name = name;
+    }
+    return self;
+}
+
+- (instancetype) init {
     
     self = [super init];
     _isOpen = false;
@@ -30,6 +43,8 @@
     }
     return self;
 }
+
+
 
 - (void) opensForBusiness {
     if (self.isOpen == true) {

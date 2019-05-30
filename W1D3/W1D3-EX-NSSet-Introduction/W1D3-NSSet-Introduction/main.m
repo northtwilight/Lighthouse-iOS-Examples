@@ -52,10 +52,6 @@ int main(int argc, const char * argv[]) {
         NSSet *sandwiches = [sarnyLookyloo convertFromArray:teamSandwichList];
         
         
-        
-        
-        
-        /**
         NSSet *updates = [sarnyLookyloo convertFromArray:lastMinuteAdditions];
         
         // Sandwich inspector: merges sets into a new final set of unique sandwiches
@@ -77,10 +73,16 @@ int main(int argc, const char * argv[]) {
         [sarnyLookyloo showMeLineByLine:changingListOfKinds];
         [sarnyLookyloo printBreak];
         
-        NSSet *mixedTypes = [[NSSet alloc] initWithObjects:@"AA", @"BB", [NSNumber numberWithInt:23], [NSString stringWithFormat:@"AA"], [NSNull null], [NSNumber numberWithFloat:3.1415], nil];
+        NSSet *mixedTypes = [[NSSet alloc] initWithObjects:@"AA",
+                             @"BB",
+                             [NSNumber numberWithInt:23],
+                             [NSString stringWithFormat:@"AA"],
+                             [NSNull null],
+                             [NSNumber numberWithFloat:3.1415],
+                             nil];
         
         [sarnyLookyloo showMeLineByLine:mixedTypes];
-        */
+    
 
     }
     return 0;

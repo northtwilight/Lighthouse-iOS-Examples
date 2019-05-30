@@ -18,6 +18,7 @@
 @property BOOL hasTakeout;
 @property BOOL hasDelivery;
 @property BOOL isOpen;
+@property (nonatomic, strong) NSString *name;
 
 - (instancetype) init;
 - (void) opensForBusiness;
