@@ -14,8 +14,7 @@
 		7797520C22AA24A40088BF9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7797520A22AA24A40088BF9C /* LaunchScreen.storyboard */; };
 		7797520F22AA24A40088BF9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7797520E22AA24A40088BF9C /* main.m */; };
 		7797521622AB3FD70088BF9C /* LoremIpsum15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7797521522AB3FD70088BF9C /* LoremIpsum15.txt */; };
-		77D43DD022ACB8C000F7F842 /* GoTKL1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D43DCE22ACB8C000F7F842 /* GoTKL1.jpg */; };
-		77D43DD122ACB8C000F7F842 /* GoTKL2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77D43DCF22ACB8C000F7F842 /* GoTKL2.jpg */; };
+		77D43DD522AE43AB00F7F842 /* PagingScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D43DD422AE43AB00F7F842 /* PagingScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +29,8 @@
 		7797520D22AA24A40088BF9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7797520E22AA24A40088BF9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7797521522AB3FD70088BF9C /* LoremIpsum15.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LoremIpsum15.txt; sourceTree = "<group>"; };
-		77D43DCE22ACB8C000F7F842 /* GoTKL1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GoTKL1.jpg; sourceTree = "<group>"; };
-		77D43DCF22ACB8C000F7F842 /* GoTKL2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GoTKL2.jpg; sourceTree = "<group>"; };
+		77D43DD322AE43AB00F7F842 /* PagingScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagingScrollViewController.h; sourceTree = "<group>"; };
+		77D43DD422AE43AB00F7F842 /* PagingScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagingScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +63,13 @@
 		779751FE22AA24A30088BF9C /* W3D1-ScrollViews */ = {
 			isa = PBXGroup;
 			children = (
+				77D43DD622AE43BC00F7F842 /* Controllers */,
 				779751FF22AA24A30088BF9C /* AppDelegate.h */,
 				7797520022AA24A30088BF9C /* AppDelegate.m */,
-				7797520222AA24A30088BF9C /* ViewController.h */,
-				7797520322AA24A30088BF9C /* ViewController.m */,
 				7797520522AA24A30088BF9C /* Main.storyboard */,
 				7797520822AA24A40088BF9C /* Assets.xcassets */,
-				77D43DCD22AC753B00F7F842 /* SourceFiles */,
 				7797520A22AA24A40088BF9C /* LaunchScreen.storyboard */,
+				77D43DCD22AC753B00F7F842 /* SourceFiles */,
 				7797520D22AA24A40088BF9C /* Info.plist */,
 				7797520E22AA24A40088BF9C /* main.m */,
 			);
@@ -81,11 +79,20 @@
 		77D43DCD22AC753B00F7F842 /* SourceFiles */ = {
 			isa = PBXGroup;
 			children = (
-				77D43DCE22ACB8C000F7F842 /* GoTKL1.jpg */,
-				77D43DCF22ACB8C000F7F842 /* GoTKL2.jpg */,
 				7797521522AB3FD70088BF9C /* LoremIpsum15.txt */,
 			);
 			path = SourceFiles;
+			sourceTree = "<group>";
+		};
+		77D43DD622AE43BC00F7F842 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7797520222AA24A30088BF9C /* ViewController.h */,
+				7797520322AA24A30088BF9C /* ViewController.m */,
+				77D43DD322AE43AB00F7F842 /* PagingScrollViewController.h */,
+				77D43DD422AE43AB00F7F842 /* PagingScrollViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +156,6 @@
 				7797521622AB3FD70088BF9C /* LoremIpsum15.txt in Resources */,
 				7797520922AA24A40088BF9C /* Assets.xcassets in Resources */,
 				7797520722AA24A30088BF9C /* Main.storyboard in Resources */,
-				77D43DD122ACB8C000F7F842 /* GoTKL2.jpg in Resources */,
-				77D43DD022ACB8C000F7F842 /* GoTKL1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,7 @@
 				7797520422AA24A30088BF9C /* ViewController.m in Sources */,
 				7797520F22AA24A40088BF9C /* main.m in Sources */,
 				7797520122AA24A30088BF9C /* AppDelegate.m in Sources */,
+				77D43DD522AE43AB00F7F842 /* PagingScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
