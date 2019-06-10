@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auto Layout Demo View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AutoLayoutDemoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rubberDuck.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="wUi-iR-JCP" userLabel="Rubber Duck Image View">
+                                <rect key="frame" x="107" y="111" width="200" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Cad-FJ-FgE"/>
+                                    <constraint firstAttribute="height" constant="160" id="fJH-Mx-d1L"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmarkIcon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-FB-Nc2" userLabel="Check Mark Icon">
+                                <rect key="frame" x="241" y="44" width="86" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="IC0-WY-Iav" userLabel="Check Mark Height"/>
+                                    <constraint firstAttribute="width" constant="86" id="oZg-bV-hm2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rubber Ducky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ8-qB-Q9O" userLabel="Rubber Ducky Label">
+                                <rect key="frame" x="55" y="309" width="223" height="35"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m7R-um-E2g">
+                                <rect key="frame" x="55" y="388" width="305" height="364"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="305" id="HR6-4Q-Vp5"/>
+                                    <constraint firstAttribute="height" constant="364" id="oLl-FE-A5F"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-NZ-6Xi">
+                                <rect key="frame" x="54.5" y="787" width="305" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="transformPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YGO-cF-5Ys"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jbl-NZ-6Xi" firstAttribute="top" secondItem="m7R-um-E2g" secondAttribute="bottom" constant="35" id="50K-lF-gHG"/>
+                            <constraint firstItem="aJ8-qB-Q9O" firstAttribute="top" secondItem="wUi-iR-JCP" secondAttribute="bottom" constant="38" id="7ET-av-NyZ"/>
+                            <constraint firstItem="wUi-iR-JCP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="A8w-Uh-VFa"/>
+                            <constraint firstItem="aa3-FB-Nc2" firstAttribute="leading" secondItem="m7R-um-E2g" secondAttribute="trailing" constant="-119" id="CPa-R7-sen"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aJ8-qB-Q9O" secondAttribute="trailing" constant="136" id="GSU-q8-xNd"/>
+                            <constraint firstItem="jbl-NZ-6Xi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GcT-cF-i3b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jbl-NZ-6Xi" secondAttribute="bottom" constant="45" id="Kt1-vu-Cer"/>
+                            <constraint firstItem="aa3-FB-Nc2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="241" id="QMW-uW-9BV"/>
+                            <constraint firstItem="jbl-NZ-6Xi" firstAttribute="width" secondItem="m7R-um-E2g" secondAttribute="width" id="WAF-iq-pgG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aa3-FB-Nc2" secondAttribute="trailing" constant="87" id="WK9-AL-esP"/>
+                            <constraint firstItem="aa3-FB-Nc2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cfW-F7-zP2"/>
+                            <constraint firstItem="m7R-um-E2g" firstAttribute="top" secondItem="aJ8-qB-Q9O" secondAttribute="bottom" constant="44" id="dz9-gI-mFV"/>
+                            <constraint firstItem="wUi-iR-JCP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iZD-UH-suV"/>
+                            <constraint firstItem="aJ8-qB-Q9O" firstAttribute="leading" secondItem="m7R-um-E2g" secondAttribute="leading" id="jgl-FC-7p5"/>
+                            <constraint firstItem="aJ8-qB-Q9O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="lIb-jr-yWs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="checkMarkHeight" destination="IC0-WY-Iav" id="ilU-Ed-RYF"/>
+                        <outlet property="checkMarkHeightConstraint" destination="IC0-WY-Iav" id="VHH-i2-mcq"/>
+                        <outlet property="checkMarkIcon" destination="aa3-FB-Nc2" id="hjm-eZ-64s"/>
+                        <outlet property="checkMarkWidth" destination="oZg-bV-hm2" id="MI9-uv-jQp"/>
+                        <outlet property="rubberDuckIconHeight" destination="fJH-Mx-d1L" id="UOg-h0-wIK"/>
+                        <outlet property="rubberDuckIconWidth" destination="Cad-FJ-FgE" id="lkw-eY-a4d"/>
+                        <outlet property="rubberDuckImageView" destination="wUi-iR-JCP" id="CtV-PR-Pt6"/>
+                        <outlet property="rubberDuckyLabel" destination="aJ8-qB-Q9O" id="ntL-eb-i4A"/>
+                        <outlet property="rubberTextHeight" destination="oLl-FE-A5F" id="Idx-TG-TE6"/>
+                        <outlet property="rubberTextView" destination="m7R-um-E2g" id="dTO-Qb-dCm"/>
+                        <outlet property="rubberTextWidth" destination="HR6-4Q-Vp5" id="HdH-Xr-CIw"/>
+                        <outlet property="transformIconsButton" destination="jbl-NZ-6Xi" id="QlL-U7-zAK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmarkIcon.jpg" width="640" height="640"/>
+        <image name="rubberDuck.jpeg" width="737.280029296875" height="635.760009765625"/>
+    </resources>
+</document>
