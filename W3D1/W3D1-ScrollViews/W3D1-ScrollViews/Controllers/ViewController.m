@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UIImage *backdrop = [UIImage imageNamed:@"GoTKL1.jpg"];
     self.threeDImageView = [[UIImageView alloc] initWithImage:backdrop];
     
