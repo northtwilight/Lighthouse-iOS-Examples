@@ -11,8 +11,6 @@ import RealmSwift
 
 class ModelBuilder: RealmService {
     
-    let realm = try! Realm()
-    
     var dogs = [Dog]()
     var people = [Person]()
     
@@ -24,7 +22,6 @@ class ModelBuilder: RealmService {
     // MARK: Create operations
     
     private func createDog(name: String, age: Int? = nil) -> Dog {
-        
         // Use Realm objects like regular Swift objects
         let dog = Dog()
         dog.name = name
@@ -44,20 +41,21 @@ class ModelBuilder: RealmService {
     }
     
     func populateRealm() {
+        let realm = try! Realm()
         let cassidy = createPerson(name: "Cassidy")
-        let cassDogs = cassidy.dogs
         for item in dogBatch {
             let dog = createDog(name: item.key, age: item.value)
             cassidy.dogs.append(dog)
         }
-
-        self.setupRealm(with: cassidy.dogs)
+        let cassDogs = cassidy.dogs
+        self.setupRealm(with: cassDogs)
     }
     
     
     // MARK: - Read operations
     
     private func fetchBasicRealm() {
+        let realm = try! Realm()
         let results = realm.objects(Person.self)
         
         for person in results {
@@ -67,6 +65,7 @@ class ModelBuilder: RealmService {
     }
     
     private func fetchWithFilterVoid() {
+        let realm = try! Realm()
         // See let property
         let results = realm.objects(Dog.self).filter(oldDogPredicate)
         
@@ -76,6 +75,7 @@ class ModelBuilder: RealmService {
     }
     
     private func fetchWithFilterDog() -> Dog? {
+        let realm = try! Realm()
         let results = realm.objects(Dog.self).filter(oldDogPredicate)
         for dog in results {
             print(#function, #line, dog.name ?? "Don't know this dog's name", dog.age.value ?? "Unknown age")
@@ -86,8 +86,9 @@ class ModelBuilder: RealmService {
     // MARK: - Update operations
     
     private func incrementAge() {
+        let realm = try! Realm()
         try! realm.write {
-            guard let dog = fetchWithFilterDog() else { return }
+            guard let dog = self.fetchWithFilterDog() else { return }
             dog.age.value = (dog.age.value ?? 0) + 1
         }
     }
@@ -110,21 +111,43 @@ class ModelBuilder: RealmService {
     // MARK: - Delete operations
     
     private func deleteDog() {
-        guard let dog = fetchWithFilterDog() else { return }
+        let realm = try! Realm()
+        guard let dog = self.fetchWithFilterDog() else { return }
         try! realm.write {
-            realm.delete(realm.objects(Dog.self))
+            realm.delete(dog)
         }
+
     }
     
     private func deleteEveryPerson() {
+        let realm = try! Realm()
         try! realm.write {
             realm.delete(realm.objects(Person.self))
+        }
+    }
+    
+    private func deleteAllDogs() {
+        let realm = try! Realm()
+        try! realm.write {
+            
+            let results = realm.objects(Dog.self)
+            for dog in results {
+                realm.delete(dog)
+            }
+            print("Deleted dog list")
         }
     }
 }
 
 extension ModelBuilder {
-    func deleteEverything() {
-        deleteEveryPerson()
+    func deleteSomething() {
+        deleteDog()
+        // deleteEveryPerson()
+    }
+    func incrementFirstDogAge() {
+        incrementAge()
+    }
+    func deletePooches() {
+        deleteAllDogs()
     }
 }

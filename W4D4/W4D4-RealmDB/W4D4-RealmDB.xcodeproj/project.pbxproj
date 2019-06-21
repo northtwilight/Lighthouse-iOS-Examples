@@ -28,7 +28,7 @@
 		777F73FB22BB5CA800061049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		777F740022BB5CA800061049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77F45B8822BB679900F60BF6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		77F45B9122BB6D0E00F60BF6 /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBuilder.swift; sourceTree = "<group>"; };
+		77F45B9122BB6D0E00F60BF6 /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelBuilder.swift; path = ../Models/ModelBuilder.swift; sourceTree = "<group>"; };
 		77FDA95C22BB775F006C03B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77FDA95E22BB820C006C03B5 /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		B45046743CFE8C8BDAEEFE94 /* Pods-W4D4-RealmDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-W4D4-RealmDB.release.xcconfig"; path = "Target Support Files/Pods-W4D4-RealmDB/Pods-W4D4-RealmDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				77F45B8822BB679900F60BF6 /* Models.swift */,
-				77F45B9122BB6D0E00F60BF6 /* ModelBuilder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +98,7 @@
 		77F45B8C22BB686100F60BF6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				77F45B9122BB6D0E00F60BF6 /* ModelBuilder.swift */,
 				777F73F622BB5CA600061049 /* ViewController.swift */,
 			);
 			path = Controllers;

@@ -15,7 +15,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // calling x times results in the same entries duplicated
         // modelBuilder.populateRealm()
+        
+        // deletes the first dog in the List
+        // modelBuilder.deleteSomething()
+        
+        modelBuilder.incrementFirstDogAge()
+        
+        // Note: Careful
+        // modelBuilder.deletePooches()
     }
 
 }
