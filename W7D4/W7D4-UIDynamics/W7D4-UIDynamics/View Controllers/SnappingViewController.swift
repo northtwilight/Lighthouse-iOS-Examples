@@ -20,42 +20,16 @@ class SnappingViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        animator = UIDynamicAnimator(referenceView: view)
-        snapping = UISnapBehavior(item: folioView, snapTo: view.center)
-        pushing = UIPushBehavior(items: [folioView], mode: .instantaneous)
-        
-        animator.addBehavior(snapping)
-        animator.addBehavior(pushing)
-        
         let image = UIImage(named: "trees")
         let imageView = UIImageView(image: image)
         imageView.frame.size = folioView.bounds.size
         folioView.addSubview(imageView)
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedView))
-        folioView.addGestureRecognizer(panGesture)
-        folioView.isUserInteractionEnabled = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(showNextViewController))
-    }
-    
-    @objc func pannedView(recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            animator.removeBehavior(snapping)
-            animator.removeBehavior(pushing)
-        case .changed:
-            let translation = recognizer.translation(in: view)
-            folioView.center = CGPoint(x: folioView.center.x + translation.x, y: folioView.center.y + translation.y)
-        case .ended, .cancelled, .failed:
-            animator.addBehavior(snapping)
-            animator.addBehavior(pushing)
-        default:
-            break
-        }
     }
 
     @objc func showNextViewController(_ sender: Any) {
