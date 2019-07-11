@@ -8,20 +8,61 @@
 
 import UIKit
 
+class MotionSupport: NSObject, UICollisionBehaviorDelegate {
+    var animator: UIDynamicAnimator!
+    
+    init(movingView: UIView) {
+        super.init()
+        self.animator = UIDynamicAnimator(referenceView: movingView.superview!)
+        
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(pan))
+        movingView.addGestureRecognizer(recognizer)
+        
+        let collision = UICollisionBehavior(items: [movingView])
+        collision.collisionDelegate = self as? UICollisionBehaviorDelegate
+        collision.translatesReferenceBoundsIntoBoundary = true
+        
+        animator.addBehavior(collision)
+    }
+    
+    @objc func pan(_ recognizer: UIPanGestureRecognizer) {
+        let view = recognizer.view!
+        let behavior = UIDynamicItemBehavior(items: [view])
+        
+        switch recognizer.state {
+        case .began:
+            animator.removeBehavior(behavior)
+            
+        case .changed:
+            let translation = recognizer.translation(in: view)
+            view.center.x += translation.x
+            view.center.y += translation.y
+            recognizer.setTranslation(.zero, in: view)
+            
+        case .ended:
+            let velocity = recognizer.velocity(in: view)
+            behavior.addLinearVelocity(velocity, for: view)
+            behavior.resistance = 2.0
+            animator.addBehavior(behavior)
+            
+        default:
+            break
+        }
+    }
+}
 
-
-
-class GreenViewController: UIViewController {
+class GreenViewController: UIViewController, UICollisionBehaviorDelegate {
     
     // MARK: Properties
     @IBOutlet weak var greenView: UIView!
+    
+    var movingSupport: MotionSupport!
     
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.movingSupport = MotionSupport(movingView: greenView!)
     }
     
     override func viewDidAppear(_ animated: Bool) {

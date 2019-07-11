@@ -8,12 +8,20 @@
 
 import UIKit
 
-class GravityViewController: UIViewController {
+class GravityViewController: UIViewController, UICollisionBehaviorDelegate {
     
     // MARK: Properties
     
     @IBOutlet weak var boundaryLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
+    
+    var greenBox: UIView!
+    var redBox: UIView!
+    
+    var animator: UIDynamicAnimator?
+    var attachment: UIAttachmentBehavior?
+    
+    
 
     // MARK: Lifecycle
     
@@ -34,6 +42,49 @@ class GravityViewController: UIViewController {
         self.view.addSubview(grayBarrier)
         self.view.addSubview(orangeBox)
         
+        // MARK: Dynamics
+        
+        animator = UIDynamicAnimator(referenceView: self.view)
+        
+        let gravity = UIGravityBehavior(items: [greenBox, redBox, orangeBox])
+        let vector = CGVector(dx: 0.0, dy: 0.25)
+        gravity.gravityDirection = vector
+        
+        let collision = UICollisionBehavior(items: [greenBox, redBox, blueBlock, orangeBox])
+        collision.collisionDelegate = self as? UICollisionBehaviorDelegate
+        collision.translatesReferenceBoundsIntoBoundary = true
+        
+        let maxX = grayBarrier.frame.width + grayBarrier.frame.origin.x
+        let maxY = grayBarrier.frame.height + grayBarrier.frame.origin.y
+        
+        collision.addBoundary(withIdentifier: "collisionBoundary" as NSCopying, from: grayBarrier.frame.origin, to: CGPoint(x: maxX, y: maxY))
+        
+        collision.action = {
+            
+            let greenString = NSCoder.string(for: greenBox.transform)
+            let redString = NSCoder.string(for: redBox.transform)
+            let grayString = NSCoder.string(for: grayBarrier.transform)
+            
+            let outputText = "\(greenString) : \(redString) : \(grayString)"
+            self.positionLabel.text = outputText
+        }
+        
+        
+        
+        let greenBounce = UIDynamicItemBehavior(items: [greenBox])
+        greenBounce.elasticity = 0.6
+        
+        let redBounce = UIDynamicItemBehavior(items: [redBox])
+        redBounce.elasticity = 0.3
+        
+        let thrashing = UIDynamicItemBehavior(items: [blueBlock])
+        thrashing.elasticity = 1.0
+        
+        animator?.addBehavior(thrashing)
+        animator?.addBehavior(redBounce)
+        animator?.addBehavior(greenBounce)
+        animator?.addBehavior(collision)
+        animator?.addBehavior(gravity)
         
     }
     
@@ -44,6 +95,15 @@ class GravityViewController: UIViewController {
         return outputBox
     }
     
+    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
+        var outputString: String
+        if let identifier = identifier {
+            outputString = "Boundary contact - \(String(describing: identifier))"
+        } else {
+            outputString = "Boundary contact nil"
+        }
+        self.boundaryLabel?.text = outputString
+    }
     
     /*
     // MARK: - Navigation

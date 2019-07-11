@@ -14,7 +14,6 @@ class SnappingViewController: UIViewController {
     
     private var animator: UIDynamicAnimator!
     private var snapping: UISnapBehavior!
-    private var pushing: UIPushBehavior!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +24,32 @@ class SnappingViewController: UIViewController {
         imageView.frame.size = folioView.bounds.size
         folioView.addSubview(imageView)
         
+        animator = UIDynamicAnimator(referenceView: view)
+        snapping = UISnapBehavior(item: folioView, snapTo: view.center)
+        
+        animator.addBehavior(snapping)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedView))
+        folioView.addGestureRecognizer(panGesture)
+        folioView.isUserInteractionEnabled = true
+        
     }
 
+    @objc func pannedView(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            animator.removeAllBehaviors()
+        case .changed:
+            let translation = recognizer.translation(in: view)
+            folioView.center = CGPoint(x: folioView.center.x + translation.x, y: folioView.center.y + translation.y)
+        case .ended, .cancelled, .failed:
+            animator.addBehavior(snapping)
+        default:
+            break
+        }
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(showNextViewController))
