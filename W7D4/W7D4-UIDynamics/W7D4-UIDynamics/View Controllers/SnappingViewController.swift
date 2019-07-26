@@ -27,7 +27,7 @@ class SnappingViewController: UIViewController {
         animator.addBehavior(snapping)
         animator.addBehavior(pushing)
         
-        let image = UIImage(named: "trees")
+        let image = UIImage(named: "my-weed-fuck-38394243")
         let imageView = UIImageView(image: image)
         imageView.frame.size = folioView.bounds.size
         folioView.addSubview(imageView)

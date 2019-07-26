@@ -17,6 +17,11 @@ class MotionSupport: NSObject, UICollisionBehaviorDelegate {
         
         self.animator = UIDynamicAnimator(referenceView: movingView.superview!)
         
+        let image = UIImage(named: "trees")
+        let imageView = UIImageView(image: image)
+        imageView.frame.size = movingView.bounds.size
+        movingView.addSubview(imageView)
+        
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(pan))
         movingView.addGestureRecognizer(recognizer)
         

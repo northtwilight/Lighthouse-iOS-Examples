@@ -1,0 +1,150 @@
+## UIKit Dynamics
+
+`UIKit` Dynamics is a lightweight physics engine introduced in iOS 7. It's used for adding 'real-world-style physics' dynamism to views and is great for creating captivating experiences.
+
+There are 3 main steps to using the `UIKit` Dynamics library:
+
+#### UIKit Dynamics: summary
+
+a. *Create an animator (dynamic animation engine) as a `UIDynamicAnimator` instance.* <br />
+
+	ie `let animator = UIDynamicAnimator(referenceView: self.view!)` (ie where the animator lives in a view controller)
+   
+   You will need to specify your reference view, or the "universe", to which this physics engine applies.
+
+b. *Instantiate behavior(s).* <br />
+
+   i.) Create one or more behavior instances (ie `UIGravityBehavior`, `UICollisionBehavior`, etc).
+   
+      ie `let pushing = UIPushBehavior(items: [greenBox])`
+
+   ii.) There are 5 main dynamic behaviors: `gravity`, `collision`, `attachment`, `snap`, `push`.
+
+   iv.) It is possible to create your own custom / combination behaviors through chaining multiple simple behaviors together; checkout the `addChildBehaviors:` method.
+
+c. *Add this / those behaviors to the animator.*
+
+	ie *in `viewDidLoad`, after defining `animator` and `pushing` as above : 
+
+	`animator?.addBehavior(pushing)`
+
+	Objects that need to interact in the physics engine need to conform to the `UIDynamicItem` protocol. All `UIView` objects and its subclasses conform to this protocol already. Your custom classes may also conform to this protocol.
+
+
+Additionally, you can further modify the default behavior of *individual* items in the animator by defining `UIDynamicItemBehavior` instances. Attributes that you can modify include:
+
+- elasticity – how bouncy or ‘rubbery’ the item behaves
+- friction – amount of resistance to movement when sliding along a surface
+- density – the greater the mass, the harder it is to accelerate or decelerate an object
+- resistance – the amount of resistance to any linear movement
+- angularResistance – the amount of resistance to any rotational movement
+- allowsRotation – if set to false the object will not rotate at all
+
+As well, you can combine multiple individual behaviors together into a single customised behavior via the animator's `addChildBehaviors` method.
+
+We are only scratching the surface of available UIKit dynamic animations. I would love for you to check the Dynamic XRay demo app for iOS, as it has a number of amazing dynamic animations using the UIKit Dynamics framework. The app is in Objective-C and has not been updated in a long while, but it still demonstrates the power of the framework very effectively. Please see under Resources below for more information.
+
+
+
+### Resources
+
+Slides are available here: 
+
+https://docs.google.com/presentation/d/1DsvmiJV3fSeYyjfLENTBuKX4GQcCaDzI3Jwk1f2pdLE/edit?usp=sharing
+
+Final code for today's demo is available here (working branch, W7D4 folder) :
+
+https://github.com/northtwilight/Lighthouse-iOS-Examples/tree/working
+
+#### Apple Developer Documentation
+
+**UIDynamics introduction & overview:**
+
+https://developer.apple.com/documentation/uikit/animation_and_haptics/uikit_dynamics
+
+**UIDynamicAnimator - Animator engine:**
+
+https://developer.apple.com/documentation/uikit/uidynamicanimator
+
+**UIDynamicItem (protocol) : ** 
+
+Important tip: UIView and UICollectionViewLayoutAttributes **both** implement this protocol. In effect, views can double as UIDynamicItems. Please pay attention to this protocol and its conformance.
+
+https://developer.apple.com/documentation/uikit/uidynamicitem
+
+**UIDynamicItemBehavior**
+
+https://developer.apple.com/documentation/uikit/uidynamicitembehavior
+
+A base dynamic animation configuration for one or more dynamic items. By way of example, Apple suggests that, 'One notable and common use of a dynamic item behavior is to confer a velocity to a dynamic item to match the ending velocity of a user gesture.' 
+
+From Apple: 
+
+To use a dynamic item behavior with a dynamic item, perform these two steps:
+
+1. Associate the item with the behavior using the `addItem(_:)` method, or initialize a new dynamic item behavior with an array of items using the `init(items:)` method
+
+2. Enable the behavior by adding it to an animator using the `addBehavior(_:)` method
+
+#### UIKit dynamics tutorials
+
+Basic gravity tutorial
+
+https://arvindravi.com/uikit-dynamics/
+
+Dynamics tutorial with gravity and collisions, using a spring attachment
+
+https://www.techotopia.com/index.php/A_Swift_iOS_8_UIKit_Dynamics_Tutorial#Attaching_a_View_to_an_Anchor_Point
+
+Ray Wenderlich introductory tutorial (somewhat out of date)
+
+https://www.raywenderlich.com/2326-uikit-dynamics-tutorial-getting-started
+
+Ray Wenderlich tutorial on tossing views via dynamics
+
+https://www.raywenderlich.com/1860-uikit-dynamics-and-swift-tutorial-tossing-views
+
+Ray Wenderlich screencast (advanced)
+
+https://www.raywenderlich.com/9157-uikit-dynamics-basics
+
+UIFieldBehavior tutorial, NSHipster
+
+https://nshipster.com/uifieldbehavior/
+
+Raul Riera UIDynamics tutorial
+
+https://medium.com/@raulriera/uikit-dynamics-in-the-real-world-ef0dfd924260
+
+Collision detection with UIKit Dynamics
+
+https://www.ioscreator.com/tutorials/collision-detection-uikit-dynamics-ios-tutorial
+
+Attachment behaviour
+
+https://www.ioscreator.com/tutorials/uikit-dynamics-attachment-behaviour-ios-tutorial
+
+AppCoda (ObjC) tutorial
+
+https://www.appcoda.com/intro-uikit-dynamics-tutorial/
+
+Sam Wize tutorial (with some gotchas)  
+
+https://samwize.com/2016/12/19/uikit-dynamics-guide/
+
+Invasive Code field dynamics tutorial
+
+https://www.invasivecode.com/weblog/dynamic-animation-uifieldbehavior
+
+RIP Tutorial
+
+https://riptutorial.com/ios/topic/9479/uikit-dynamics
+
+
+#### Dynamic XRay - UIDynamics demo app
+
+- Free software / open source licensing (GPL 3.0 & BSD 2-clause / `FreeBSD` license) 
+- Allows for visualisation of dynamic behaviours, dynamic items and the animator (core dynamics engine) 'Xray tracing', so to speak.
+- Source code archive provides the 'universal' iOS app plus the framework for inclusion in other third-party licensed software and derivative works.
+- Third-party and Apple sample code included (frankly, the 3rd-party code is more interesting)
+
